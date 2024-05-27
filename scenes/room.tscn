@@ -1,0 +1,101 @@
+[gd_scene load_steps=21 format=3 uid="uid://c7ddbk2l8uq41"]
+
+[ext_resource type="Texture2D" uid="uid://ci6prh6eyd67t" path="res://assets/textures/flooor.png" id="1_pihpk"]
+[ext_resource type="Script" path="res://scripts/playermove.gd" id="2_1ljoh"]
+[ext_resource type="PackedScene" uid="uid://b4qblhqmyurnc" path="res://assets/models/bed.glb" id="3_vyoch"]
+[ext_resource type="PackedScene" uid="uid://b6lu78ktwoo0p" path="res://assets/models/bedroomshelves.glb" id="4_7i1qw"]
+[ext_resource type="PackedScene" uid="uid://cn2cph2i6mxs3" path="res://assets/models/cds.glb" id="5_8kttw"]
+[ext_resource type="PackedScene" uid="uid://bywdcyh35q5af" path="res://assets/models/cd_player.glb" id="6_crndo"]
+[ext_resource type="PackedScene" uid="uid://cvnq02d0xp8pj" path="res://assets/models/couch.glb" id="7_0mxq3"]
+[ext_resource type="PackedScene" uid="uid://balb6ellyofm8" path="res://assets/models/endtable.glb" id="8_p6517"]
+[ext_resource type="PackedScene" uid="uid://cykrxvte5kvcb" path="res://assets/models/lamp.glb" id="9_ujris"]
+[ext_resource type="PackedScene" uid="uid://unou2shk1kdp" path="res://assets/models/everything_poster.glb" id="10_31aqg"]
+[ext_resource type="PackedScene" uid="uid://c4okpb5il3i" path="res://assets/models/lamppppp.glb" id="11_daoq0"]
+[ext_resource type="PackedScene" uid="uid://dvqpg2vbjndse" path="res://assets/models/plant1.glb" id="12_adyla"]
+[ext_resource type="PackedScene" uid="uid://8i6pvdn4gvbf" path="res://assets/models/plant2.glb" id="13_tb223"]
+[ext_resource type="PackedScene" uid="uid://cc1p0fnoumr3h" path="res://assets/models/speaker.glb" id="14_q5m42"]
+[ext_resource type="PackedScene" uid="uid://cdt63k5necnb1" path="res://assets/models/treeee.glb" id="15_tveyx"]
+[ext_resource type="PackedScene" uid="uid://dxpw1pvuqyvb0" path="res://assets/models/turntable.glb" id="16_dlsnr"]
+[ext_resource type="PackedScene" uid="uid://d33h23ffd1n05" path="res://assets/models/tv.glb" id="17_ddy7x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ak65"]
+albedo_texture = ExtResource("1_pihpk")
+uv1_scale = Vector3(1.5, 1.5, 1.5)
+texture_filter = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xkv2c"]
+material = SubResource("StandardMaterial3D_6ak65")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q1vkr"]
+radius = 1.18748
+height = 11.8996
+
+[node name="Room" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(30, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("PlaneMesh_xkv2c")
+
+[node name="Player" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Area3D" type="Area3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5264, 0)
+script = ExtResource("2_1ljoh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Area3D"]
+shape = SubResource("CapsuleShape3D_q1vkr")
+
+[node name="PlayerCamera" type="Camera3D" parent="Player/Area3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.62561, 0)
+
+[node name="Objects" type="Node" parent="."]
+
+[node name="bed" parent="Objects" instance=ExtResource("3_vyoch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3533, 0.685867, 1.93428)
+
+[node name="bedroomshelves" parent="Objects" instance=ExtResource("4_7i1qw")]
+transform = Transform3D(-0.00560249, 0, -0.999984, 0, 1, 0, 0.999984, 0, -0.00560249, -8.80192, 0, -12.8945)
+
+[node name="cds" parent="Objects" instance=ExtResource("5_8kttw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.66526, 0, -12.7353)
+
+[node name="cd_player" parent="Objects" instance=ExtResource("6_crndo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.90485, 0, -7.76596)
+
+[node name="couch" parent="Objects" instance=ExtResource("7_0mxq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.41937, 0, 1.58605)
+
+[node name="endtable" parent="Objects" instance=ExtResource("8_p6517")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.83526, 0, 2.80484)
+
+[node name="lamp2" parent="Objects" instance=ExtResource("9_ujris")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.62067, 4.95785, 2.81021)
+
+[node name="everything_poster" parent="Objects" instance=ExtResource("10_31aqg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3467, 0, -15.1434)
+
+[node name="lamppppp" parent="Objects" instance=ExtResource("11_daoq0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.27192, 12.1936, 3.29821)
+
+[node name="plant1" parent="Objects" instance=ExtResource("12_adyla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.23596, 4.60301, 10.4964)
+
+[node name="plant2" parent="Objects" instance=ExtResource("13_tb223")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2246, 4.17052, 12.1968)
+
+[node name="speaker" parent="Objects" instance=ExtResource("14_q5m42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.31603, 0, 9.4668)
+
+[node name="speaker2" parent="Objects" instance=ExtResource("14_q5m42")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0519, 0, 12.7556)
+
+[node name="treeee" parent="Objects" instance=ExtResource("15_tveyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.3015, 10.137, 19.931)
+
+[node name="turntable" parent="Objects" instance=ExtResource("16_dlsnr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.147038, 0, 5.4109)
+
+[node name="tv" parent="Objects" instance=ExtResource("17_ddy7x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08777, 0, 13.5094)
