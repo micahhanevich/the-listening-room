@@ -24,13 +24,13 @@
 radius = 1.18748
 height = 11.8996
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ak65"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irlps"]
 albedo_texture = ExtResource("1_pihpk")
 uv1_scale = Vector3(1.5, 1.5, 1.5)
 texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xkv2c"]
-material = SubResource("StandardMaterial3D_6ak65")
+material = SubResource("StandardMaterial3D_irlps")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqcts"]
 albedo_texture = ExtResource("18_vqdw4")
@@ -75,7 +75,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.10688, 0)
 [node name="Objects" type="Node" parent="."]
 
 [node name="bed" parent="Objects" instance=ExtResource("3_vyoch")]
-transform = Transform3D(-0.0103462, 0, -1.19996, 0, 1.2, 0, 1.19996, 0, -0.0103462, 13.292, 0.907269, 9.20616)
+transform = Transform3D(-0.0120704, 0, -1.19996, 0, 1.2, 0, 1.39995, 0, -0.0103461, 13.292, 0.907269, 9.20616)
 
 [node name="bedroomshelves" parent="Objects" instance=ExtResource("4_7i1qw")]
 transform = Transform3D(-0.00616274, 0, -1.09998, 0, 1.1, 0, 1.09998, 0, -0.00616274, -11.0417, 0.187155, -12.8945)
