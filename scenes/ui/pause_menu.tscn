@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=3 uid="uid://baequhdq4sr0e"]
+
+[ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="1_bua33"]
+[ext_resource type="Texture2D" uid="uid://c6tx8xhukrxc8" path="res://assets/ui/pause_menu.png" id="1_rlmfc"]
+[ext_resource type="Texture2D" uid="uid://davdbfv2dtg0r" path="res://assets/ui/button.png" id="2_kp5av"]
+
+[sub_resource type="Animation" id="Animation_1ahq4"]
+resource_name = "pause_cycle"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.15, 1.15)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yfdy6"]
+_data = {
+"pause_cycle": SubResource("Animation_1ahq4")
+}
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(572, 303)
+script = ExtResource("1_bua33")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 1152.0
+offset_bottom = 648.0
+pivot_offset = Vector2(572, 306)
+texture = ExtResource("1_rlmfc")
+expand_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_left = 331.0
+offset_right = 781.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_kp5av")
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/TextureButton"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 26.0
+offset_right = 338.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 46
+text = "Play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_kp5av")
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer/TextureButton2"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 23.0
+offset_right = 338.0
+offset_bottom = 95.0
+theme_override_font_sizes/font_size = 46
+text = "Maps"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton3" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_kp5av")
+
+[node name="Label3" type="Label" parent="CenterContainer/VBoxContainer/TextureButton3"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 24.0
+offset_right = 338.0
+offset_bottom = 96.0
+theme_override_font_sizes/font_size = 46
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 2
+libraries = {
+"": SubResource("AnimationLibrary_yfdy6")
+}
+autoplay = "pause_cycle"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/TextureButton" to="." method="close_menu"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/TextureButton3" to="." method="close_game"]
