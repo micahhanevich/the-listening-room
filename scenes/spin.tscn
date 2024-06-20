@@ -1,6 +1,5 @@
-[gd_scene load_steps=27 format=3 uid="uid://x8oxvb6y4a34"]
+[gd_scene load_steps=26 format=3 uid="uid://x8oxvb6y4a34"]
 
-[ext_resource type="Script" path="res://scripts/playermove.gd" id="1_4esls"]
 [ext_resource type="PackedScene" uid="uid://b5d3efpsvntt5" path="res://assets/models/clubbabypaint.glb" id="2_5wggx"]
 [ext_resource type="PackedScene" uid="uid://qcij4io2ndmk" path="res://assets/models/clubball.glb" id="3_d7jam"]
 [ext_resource type="Script" path="res://assets/models/clubball.gd" id="4_x2r1t"]
@@ -20,10 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c4okpb5il3i" path="res://assets/models/lamppppp.glb" id="18_5g5li"]
 [ext_resource type="PackedScene" uid="uid://dvqpg2vbjndse" path="res://assets/models/plant1.glb" id="19_l2eiu"]
 [ext_resource type="PackedScene" uid="uid://cvnq02d0xp8pj" path="res://assets/models/couch.glb" id="20_6n7lo"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i1mev"]
-radius = 1.18748
-height = 10.6275
+[ext_resource type="PackedScene" uid="uid://dkal1jmntn7b2" path="res://scenes/objects/player.tscn" id="20_rlo7k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pid1w"]
 albedo_texture = ExtResource("17_v7cx1")
@@ -46,21 +42,6 @@ fog_light_energy = 0.01
 fog_density = 0.0267
 
 [node name="Node3D" type="Node3D"]
-
-[node name="Player" type="Node3D" parent="."]
-unique_name_in_owner = true
-
-[node name="Area3D" type="Area3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.5264, 0)
-script = ExtResource("1_4esls")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.37559, 0)
-shape = SubResource("CapsuleShape3D_i1mev")
-
-[node name="PlayerCamera" type="Camera3D" parent="Player/Area3D"]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3471, 0)
 
 [node name="objects" type="Node" parent="."]
 
@@ -181,3 +162,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -27.6769, 7.89096, -44.2834)
 
 [node name="couch" parent="." instance=ExtResource("20_6n7lo")]
 transform = Transform3D(-0.00167547, 0, -1.2, 0, 1.2, 0, 1.2, 0, -0.00167547, -13.679, 1.95813, -44.7496)
+
+[node name="Player" parent="." instance=ExtResource("20_rlo7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6465, 5.94461, 0)

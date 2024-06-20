@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnrccw3arugja"
+path="res://.godot/imported/Leaf House - LEAF HOUSE - 08 I EXIST.mp3-bb4b5a7f2753b15aafb0424f22c2b77e.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Leaf House - LEAF HOUSE/Leaf House - LEAF HOUSE - 08 I EXIST.mp3"
+dest_files=["res://.godot/imported/Leaf House - LEAF HOUSE - 08 I EXIST.mp3-bb4b5a7f2753b15aafb0424f22c2b77e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

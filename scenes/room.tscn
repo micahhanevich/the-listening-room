@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c7ddbk2l8uq41"]
+[gd_scene load_steps=43 format=3 uid="uid://c7ddbk2l8uq41"]
 
 [ext_resource type="PackedScene" uid="uid://dkal1jmntn7b2" path="res://scenes/objects/player.tscn" id="1_ly5x2"]
 [ext_resource type="Texture2D" uid="uid://ci6prh6eyd67t" path="res://assets/textures/flooor.png" id="1_pihpk"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://8i6pvdn4gvbf" path="res://assets/models/plant2.glb" id="13_tb223"]
 [ext_resource type="PackedScene" uid="uid://cc1p0fnoumr3h" path="res://assets/models/speaker.glb" id="14_q5m42"]
 [ext_resource type="PackedScene" uid="uid://cdt63k5necnb1" path="res://assets/models/treeee.glb" id="15_tveyx"]
+[ext_resource type="VideoStream" path="res://assets/textures/YouCut_20220531_081006739 (1).ogv" id="16_6jxi8"]
 [ext_resource type="PackedScene" uid="uid://dxpw1pvuqyvb0" path="res://assets/models/turntable.glb" id="16_dlsnr"]
 [ext_resource type="PackedScene" uid="uid://d33h23ffd1n05" path="res://assets/models/tv.glb" id="17_ddy7x"]
 [ext_resource type="Texture2D" uid="uid://b281mpfyhboh2" path="res://assets/textures/wallr.png" id="18_vqdw4"]
@@ -51,6 +52,15 @@ size = Vector3(1, 0.835693, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_j7ghg"]
 size = Vector3(3.64319, 3.11359, 3.52274)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_53cka"]
+viewport_path = NodePath("Objects/TV/MeshInstance3D/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_av7ne"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_53cka")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rpl2c"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irlps"]
 albedo_texture = ExtResource("1_pihpk")
 uv1_scale = Vector3(1.5, 1.5, 1.5)
@@ -78,9 +88,6 @@ albedo_texture = ExtResource("20_k3etk")
 uv1_scale = Vector3(2.5, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lrvlg"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2g420"]
-albedo_texture = ExtResource("18_vqdw4")
 
 [node name="Room" type="Node3D"]
 
@@ -237,6 +244,21 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20.974
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000183105, -0.179718, -1.03789)
 shape = SubResource("BoxShape3D_j7ghg")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/TV"]
+transform = Transform3D(1.45, 4.37114e-08, -2.29282e-15, 0, -4.37114e-08, -1.2, -6.33815e-08, 1, -5.24537e-08, 0, 0.299486, 0.435085)
+material_override = SubResource("StandardMaterial3D_av7ne")
+mesh = SubResource("PlaneMesh_rpl2c")
+
+[node name="SubViewport" type="SubViewport" parent="Objects/TV/MeshInstance3D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Objects/TV/MeshInstance3D/SubViewport"]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("16_6jxi8")
+volume_db = -64.4
+autoplay = true
+loop = true
+
 [node name="Bed" type="StaticBody3D" parent="Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.292, 0.907269, 9.20616)
 
@@ -279,25 +301,18 @@ skeleton = NodePath("../..")
 transform = Transform3D(1.91069e-14, 1.22392e-06, -28, 10, -1.22392e-06, 0, -4.37114e-07, -28, -1.22392e-06, 0.152877, 9.95957, 15.719)
 material_override = SubResource("StandardMaterial3D_kxykx")
 mesh = SubResource("PlaneMesh_jvu3g")
-skeleton = NodePath("../MeshInstance3D")
+skeleton = NodePath("")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="World/Walls"]
 transform = Transform3D(-4.37114e-07, 28, 0, -10, -1.22392e-06, 0, 0, 0, 16, -26.7917, 9.79561, -0.0163355)
 material_override = SubResource("StandardMaterial3D_7ktay")
 mesh = SubResource("PlaneMesh_jvu3g")
-skeleton = NodePath("../MeshInstance3D")
+skeleton = NodePath("")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="World/Walls"]
 transform = Transform3D(28, 0, 0, 0, -1, 1.39877e-06, 0, -8.74228e-08, -16, 0, 19.6463, -2.05478e-08)
 material_override = SubResource("StandardMaterial3D_f1uqh")
 mesh = SubResource("PlaneMesh_lrvlg")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Walls"]
-transform = Transform3D(-0.00349089, -4.37266e-08, -28, -10, -4.37114e-08, 0.00977448, -4.37266e-07, 1, -1.22392e-06, 9.53674e-07, 9.94906, -15.6991)
-layers = 2
-material_override = SubResource("StandardMaterial3D_2g420")
-mesh = SubResource("PlaneMesh_jvu3g")
 skeleton = NodePath("../..")
 
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="World/Walls"]
@@ -323,3 +338,9 @@ polygon = PackedVector2Array(27, 0, -27, 0, -27, 22, 27, 22)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9993, 19.8614, 0.00245476)
 depth = 32.0
 polygon = PackedVector2Array(0, 0, 54, 0, 54, -1, 0, -1)
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="World/Walls"]
+transform = Transform3D(1.91069e-14, 1.22392e-06, 28, 10, -1.22392e-06, 0, 4.37114e-07, 28, -1.22392e-06, 0.152877, 9.95957, -15.6428)
+material_override = SubResource("StandardMaterial3D_kxykx")
+mesh = SubResource("PlaneMesh_jvu3g")
+skeleton = NodePath("")

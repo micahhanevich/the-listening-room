@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d24mnpqwwgvhq"
+path="res://.godot/imported/Leaf House - LEAF HOUSE - 04 KURU.mp3-9dd77ae8de6fe4ab65d2084eb697d597.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Leaf House - LEAF HOUSE/Leaf House - LEAF HOUSE - 04 KURU.mp3"
+dest_files=["res://.godot/imported/Leaf House - LEAF HOUSE - 04 KURU.mp3-9dd77ae8de6fe4ab65d2084eb697d597.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

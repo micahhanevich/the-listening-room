@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cm313gt20ssps"
+path="res://.godot/imported/Leaf House - LEAF HOUSE - 06 THE HUMM.mp3-f8b642326fd6c15d075661be05621da8.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Leaf House - LEAF HOUSE/Leaf House - LEAF HOUSE - 06 THE HUMM.mp3"
+dest_files=["res://.godot/imported/Leaf House - LEAF HOUSE - 06 THE HUMM.mp3-f8b642326fd6c15d075661be05621da8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

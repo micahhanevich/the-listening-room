@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqkekxineicy7"
+path="res://.godot/imported/Leaf House - LEAF HOUSE - 03 AIRSICK.mp3-24f2c21adde9ee6785b26e3f986cbe7f.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Leaf House - LEAF HOUSE/Leaf House - LEAF HOUSE - 03 AIRSICK.mp3"
+dest_files=["res://.godot/imported/Leaf House - LEAF HOUSE - 03 AIRSICK.mp3-24f2c21adde9ee6785b26e3f986cbe7f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
