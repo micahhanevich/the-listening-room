@@ -1,0 +1,382 @@
+[gd_scene load_steps=44 format=3 uid="uid://x8oxvb6y4a34"]
+
+[ext_resource type="PackedScene" uid="uid://b5d3efpsvntt5" path="res://assets/models/clubbabypaint.glb" id="1_uv0of"]
+[ext_resource type="PackedScene" uid="uid://qcij4io2ndmk" path="res://assets/models/clubball.glb" id="2_ya7vl"]
+[ext_resource type="Script" path="res://scripts/world/clubball.gd" id="3_limff"]
+[ext_resource type="PackedScene" uid="uid://dueoe8u20gl1j" path="res://assets/models/clubbar1.glb" id="4_uxeqr"]
+[ext_resource type="PackedScene" uid="uid://b7b0jlymjyy8l" path="res://assets/models/clubbar2.glb" id="5_p0uyf"]
+[ext_resource type="PackedScene" uid="uid://o86t8kf700im" path="res://assets/models/clubbench.glb" id="6_6pdhu"]
+[ext_resource type="PackedScene" uid="uid://b41nivjt6oq6m" path="res://assets/models/clubbottle.glb" id="7_v1751"]
+[ext_resource type="PackedScene" uid="uid://dugr2r4a7h8li" path="res://assets/models/clubdeck.glb" id="8_6lb8y"]
+[ext_resource type="PackedScene" uid="uid://cakybrpm765" path="res://assets/models/clublight.glb" id="9_2y2pp"]
+[ext_resource type="PackedScene" uid="uid://bwh5nbmae6v7j" path="res://assets/models/clublspeaker.glb" id="10_lnn2t"]
+[ext_resource type="PackedScene" uid="uid://b8g0ahirjav0n" path="res://assets/models/clublstand.glb" id="11_dj6mh"]
+[ext_resource type="PackedScene" uid="uid://d3w73ctchh4gt" path="res://assets/models/clublstool2.glb" id="12_xabhp"]
+[ext_resource type="PackedScene" uid="uid://dhscxvel4fwmt" path="res://assets/models/clubmanpaint.glb" id="13_27bwf"]
+[ext_resource type="PackedScene" uid="uid://c1ipnr73qhoj0" path="res://assets/models/clubstool.glb" id="14_0tn25"]
+[ext_resource type="PackedScene" uid="uid://csq5sehnmqsdd" path="res://assets/models/clubtable.glb" id="15_hrp1a"]
+[ext_resource type="Texture2D" uid="uid://c8e6sf1ckveor" path="res://assets/models/concr.png" id="16_cpgtu"]
+[ext_resource type="PackedScene" uid="uid://c4okpb5il3i" path="res://assets/models/lamppppp.glb" id="17_8t726"]
+[ext_resource type="PackedScene" uid="uid://dvqpg2vbjndse" path="res://assets/models/plant1.glb" id="18_mhr1b"]
+[ext_resource type="PackedScene" uid="uid://cvnq02d0xp8pj" path="res://assets/models/couch.glb" id="19_am6yo"]
+[ext_resource type="PackedScene" uid="uid://dkal1jmntn7b2" path="res://scenes/objects/player.tscn" id="20_ux3i5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_27gcf"]
+size = Vector3(5.72409, 5.90625, 20.7075)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6x4rn"]
+size = Vector3(3.80825, 3.92295, 24.2635)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c527k"]
+size = Vector3(4.91806, 3.92295, 7.82622)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w0s74"]
+size = Vector3(10.8909, 3.92295, 4.92716)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b1mx0"]
+size = Vector3(6.58113, 4.49533, 25.3021)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w2lvw"]
+size = Vector3(1.99805, 8.10364, 1.99817)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ffol"]
+size = Vector3(4.01311, 4.13553, 2.48517)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w8fg6"]
+size = Vector3(2.51046, 4.13553, 2.48517)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tg10l"]
+size = Vector3(2.25158, 4.13553, 5.99552)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_haj1f"]
+height = 2.93992
+radius = 0.679503
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fgegb"]
+height = 2.52302
+radius = 0.760967
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bsyfc"]
+height = 4.75421
+radius = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pid1w"]
+albedo_texture = ExtResource("16_cpgtu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_6gbnr"]
+material = SubResource("StandardMaterial3D_pid1w")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p7oud"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ygd06"]
+albedo_texture = ExtResource("16_cpgtu")
+
+[sub_resource type="BoxMesh" id="BoxMesh_7scru"]
+material = SubResource("StandardMaterial3D_ygd06")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mc7es"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uy7bh"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i1k0d"]
+height = 12.0573
+radius = 1.36083
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nia2j"]
+size = Vector3(1.61169, 1.64166, 1.56927)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nh2fh"]
+size = Vector3(2.48315, 3.62634, 17.3613)
+
+[sub_resource type="Environment" id="Environment_7jofj"]
+ambient_light_color = Color(0.332881, 0.332881, 0.332881, 1)
+ambient_light_energy = 11.27
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.647516, 0.728115, 0.840006, 1)
+fog_light_energy = 0.01
+fog_density = 0.0267
+
+[node name="Club" type="Node3D"]
+
+[node name="objects" type="Node" parent="."]
+
+[node name="clubbabypaint" parent="objects" instance=ExtResource("1_uv0of")]
+transform = Transform3D(-0.0171209, 0, 0.999853, 0, 1, 0, -0.999853, 0, -0.0171209, -9.76432, 16.9504, 6.47325)
+
+[node name="clubball" parent="objects" instance=ExtResource("2_ya7vl")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 5.77682, 15.6761, -5.16183)
+script = ExtResource("3_limff")
+
+[node name="Club_Bar_1" type="StaticBody3D" parent="objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.7861, 2.51354, 20.7956)
+
+[node name="clubbar1" parent="objects/Club_Bar_1" instance=ExtResource("4_uxeqr")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Club_Bar_1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.512833, 0.417969, -0.3564)
+shape = SubResource("BoxShape3D_27gcf")
+
+[node name="Club_Bar_2" type="StaticBody3D" parent="objects"]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 1.5829, 1.51093, 15.5001)
+
+[node name="clubbar2" parent="objects/Club_Bar_2" instance=ExtResource("5_p0uyf")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Club_Bar_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231884, 0.882672, -1.61818)
+shape = SubResource("BoxShape3D_6x4rn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="objects/Club_Bar_2"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -2.39015, 0.882672, -14.7772)
+shape = SubResource("BoxShape3D_c527k")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="objects/Club_Bar_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.87815, 0.882672, -16.7935)
+shape = SubResource("BoxShape3D_w0s74")
+
+[node name="Club_Benches" type="StaticBody3D" parent="objects"]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 55.581, 4, -0.783)
+
+[node name="clubbench" parent="objects/Club_Benches" instance=ExtResource("6_6pdhu")]
+
+[node name="clubbench2" parent="objects/Club_Benches" instance=ExtResource("6_6pdhu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0220013, 0, 12.6419)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Club_Benches"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54177, 0.00318909, 6.31876)
+shape = SubResource("BoxShape3D_b1mx0")
+
+[node name="Club_Speaker" type="StaticBody3D" parent="objects"]
+transform = Transform3D(-0.858734, 0, -1.22987, 0, 1.5, 0, 1.22987, 0, -0.858734, 41.5582, 7.99993, 13.4122)
+
+[node name="clubspeaker" parent="objects/Club_Speaker" instance=ExtResource("10_lnn2t")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Club_Speaker"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, -2.2818, -0.00151253)
+shape = SubResource("BoxShape3D_w2lvw")
+
+[node name="Club_Speaker2" type="StaticBody3D" parent="objects"]
+transform = Transform3D(-1.45343, 0, 0.370879, 0, 1.5, 0, -0.370879, 0, -1.45343, 9.90379, 8.26506, 26.5842)
+
+[node name="clubspeaker" parent="objects/Club_Speaker2" instance=ExtResource("10_lnn2t")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Club_Speaker2"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, -2.2818, -0.00151253)
+shape = SubResource("BoxShape3D_w2lvw")
+
+[node name="Club_Speaker3" type="StaticBody3D" parent="objects"]
+transform = Transform3D(1.00442, 0, -1.11407, 0, 1.5, 0, 1.11407, 0, 1.00442, 48.877, 9.30678, -42.9418)
+
+[node name="clubspeaker" parent="objects/Club_Speaker3" instance=ExtResource("10_lnn2t")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Club_Speaker3"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, -2.2818, -0.00151253)
+shape = SubResource("BoxShape3D_w2lvw")
+
+[node name="Club_Stand" type="StaticBody3D" parent="objects"]
+transform = Transform3D(-1.49806, 0, 0.803624, 0, 1.7, 0, -0.803624, 0, -1.49806, 34.6758, 3.03557, 22.3128)
+
+[node name="clubstand" parent="objects/Club_Stand" instance=ExtResource("11_dj6mh")]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Club_Stand"]
+transform = Transform3D(0.927184, 0, -0.374607, 0, 1, 0, 0.374607, 0, 0.927184, 0.915791, 0.00755298, 0.381901)
+shape = SubResource("BoxShape3D_6ffol")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="objects/Club_Stand"]
+transform = Transform3D(0.92051, 0, 0.390724, 0, 1, 0, -0.390724, 0, 0.92051, 1.59334, 0.00755298, -0.672953)
+shape = SubResource("BoxShape3D_w8fg6")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="objects/Club_Stand"]
+transform = Transform3D(0.92051, 0, 0.390724, 0, 1, 0, -0.390724, 0, 0.92051, 0.66605, 0.00755298, 1.63529)
+shape = SubResource("BoxShape3D_w8fg6")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="objects/Club_Stand"]
+transform = Transform3D(0.927184, 0, -0.374607, 0, 1, 0, 0.374607, 0, 0.927184, 0.104017, 0.00755298, 0.0399332)
+shape = SubResource("BoxShape3D_tg10l")
+
+[node name="clubbottle" parent="objects" instance=ExtResource("7_v1751")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.53599, 6.31453, 1.66564)
+
+[node name="clubdeck" parent="objects" instance=ExtResource("8_6lb8y")]
+transform = Transform3D(-1.05399, 0, -0.921466, 0, 1.4, 0, 0.921466, 0, -1.05399, 34.1588, 5.3964, 21.8446)
+
+[node name="clublight" parent="objects" instance=ExtResource("9_2y2pp")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 28.1689, 19.9269, -5.27177)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="objects/clublight"]
+transform = Transform3D(0.19344, 0.95823, 0.210657, -0.728156, -0.00368459, 0.685402, 0.657549, -0.285975, 0.697028, -0.690962, -0.250809, 0.644123)
+light_color = Color(1, 0.611765, 1, 1)
+light_energy = 5.0
+spot_range = 69.4856
+spot_angle = 64.6875
+script = ExtResource("3_limff")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="objects/clublight"]
+transform = Transform3D(0.542253, -0.157738, 0.825276, -0.836573, -0.0100012, 0.547764, -0.0781494, -0.98743, -0.137383, -0.684261, -0.459875, 5.2473)
+light_color = Color(1, 0.384314, 1, 1)
+light_energy = 5.0
+spot_range = 72.5737
+spot_angle = 56.4097
+script = ExtResource("3_limff")
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="objects/clublight"]
+transform = Transform3D(0.704665, -0.235485, -0.669323, 0.680248, -0.0440322, 0.731658, -0.201766, -0.97088, 0.12916, 0.703471, -0.222263, 3.06852)
+light_color = Color(1, 0.572549, 1, 1)
+light_energy = 5.0
+spot_range = 56.9124
+spot_angle = 60.6065
+script = ExtResource("3_limff")
+
+[node name="Clubstool" type="StaticBody3D" parent="objects"]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 7.58017, 2.46025, 18.7553)
+
+[node name="clubstool" parent="objects/Clubstool" instance=ExtResource("14_0tn25")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Clubstool"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.467756, 0)
+shape = SubResource("CylinderShape3D_haj1f")
+
+[node name="Clubstool2" type="StaticBody3D" parent="objects"]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 7.58598, 2.48091, 11.4551)
+
+[node name="clubstool" parent="objects/Clubstool2" instance=ExtResource("14_0tn25")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Clubstool2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.467756, 0)
+shape = SubResource("CylinderShape3D_haj1f")
+
+[node name="Clubstool3" type="StaticBody3D" parent="objects"]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 7.497, 2.49571, 3.93116)
+
+[node name="clubstool" parent="objects/Clubstool3" instance=ExtResource("14_0tn25")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Clubstool3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.467756, 0)
+shape = SubResource("CylinderShape3D_haj1f")
+
+[node name="Clubstool4" type="StaticBody3D" parent="objects"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -6.82858, 2.19545, -14.4326)
+
+[node name="clublstool2" parent="objects/Clubstool4" instance=ExtResource("12_xabhp")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Clubstool4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.260791, 0)
+shape = SubResource("CylinderShape3D_fgegb")
+
+[node name="Clubstool5" type="StaticBody3D" parent="objects"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -14.1632, 2.21747, -14.694)
+
+[node name="clublstool2" parent="objects/Clubstool5" instance=ExtResource("12_xabhp")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Clubstool5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.260791, 0)
+shape = SubResource("CylinderShape3D_fgegb")
+
+[node name="clubmanpaint" parent="objects" instance=ExtResource("13_27bwf")]
+transform = Transform3D(-1.49999, 0, 0.004634, 0, 1.5, 0, -0.004634, 0, -1.49999, 21.9231, 16.1159, 30.748)
+
+[node name="Club_Table" type="StaticBody3D" parent="objects"]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 48.9871, 3.17661, -0.641578)
+
+[node name="clubtable" parent="objects/Club_Table" instance=ExtResource("15_hrp1a")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Club_Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12158, 0.581288, 0.032959)
+shape = SubResource("CylinderShape3D_bsyfc")
+
+[node name="Club_Table2" type="StaticBody3D" parent="objects"]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 48.1997, 3.37727, -26.2084)
+
+[node name="clubtable" parent="objects/Club_Table2" instance=ExtResource("15_hrp1a")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Club_Table2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12158, 0.581288, 0.032959)
+shape = SubResource("CylinderShape3D_bsyfc")
+
+[node name="clubbottle3" parent="objects" instance=ExtResource("7_v1751")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 48.0604, 6.70031, -3.33031)
+
+[node name="wall" type="Node3D" parent="objects"]
+
+[node name="floor" type="MeshInstance3D" parent="objects/wall"]
+transform = Transform3D(46, 0, 0, 0, 1, 0, 0, 0, 42, 13.0608, 0, -9.95529)
+mesh = SubResource("PlaneMesh_6gbnr")
+skeleton = NodePath("../../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/wall/floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/wall/floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_p7oud")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="objects/wall"]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, -25.3332, 11.6393, 16.9818)
+mesh = SubResource("BoxMesh_7scru")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/wall/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/wall/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_mc7es")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="objects/wall"]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 60.6594, 13.8469, 25.7631)
+mesh = SubResource("BoxMesh_7scru")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="objects/wall/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/wall/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_uy7bh")
+
+[node name="Floor_Lamp" type="StaticBody3D" parent="objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.24, 10.111, -35.635)
+
+[node name="lamppppp" parent="objects/Floor_Lamp" instance=ExtResource("17_8t726")]
+transform = Transform3D(1, 0, 0, 0, 1.19585, 0, 0, 0, 1, 0, 1.97847, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="objects/Floor_Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.13164, 0)
+light_color = Color(0.865837, 0.848993, 0, 1)
+light_energy = 6.01
+omni_range = 46.373
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Floor_Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.09293, 0)
+shape = SubResource("CylinderShape3D_i1k0d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="objects"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -27.6769, 7.89096, -44.2834)
+
+[node name="plant1" parent="objects/StaticBody3D" instance=ExtResource("18_mhr1b")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00323486, -3.15306, -0.0298767)
+shape = SubResource("BoxShape3D_nia2j")
+
+[node name="Couch" type="StaticBody3D" parent="objects"]
+transform = Transform3D(-0.00167547, 0, -1.2, 0, 1.2, 0, 1.2, 0, -0.00167547, -13.679, 1.95813, -44.7496)
+
+[node name="couch" parent="objects/Couch" instance=ExtResource("19_am6yo")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="objects/Couch"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.533518, -2.5, 2.23517e-08)
+depth = 6.6
+polygon = PackedVector2Array(-9.36, 0, 9.36, 0, 9.36, 5.5, 8.5, 5.5, 8.5, 3.35, -8.54, 3.35, -8.54, 5.5, -9.35, 5.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Couch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89504, 2.12514, 0.112482)
+shape = SubResource("BoxShape3D_nh2fh")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7jofj")
+
+[node name="Player" parent="." instance=ExtResource("20_ux3i5")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 16.6465, 0.0673696, 0)
