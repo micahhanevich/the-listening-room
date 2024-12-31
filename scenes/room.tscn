@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c7ddbk2l8uq41"]
+[gd_scene load_steps=44 format=3 uid="uid://c7ddbk2l8uq41"]
 
 [ext_resource type="PackedScene" uid="uid://dkal1jmntn7b2" path="res://scenes/objects/player.tscn" id="1_ly5x2"]
 [ext_resource type="Texture2D" uid="uid://ci6prh6eyd67t" path="res://assets/textures/flooor.png" id="1_pihpk"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://d33h23ffd1n05" path="res://assets/models/tv.glb" id="17_ddy7x"]
 [ext_resource type="Texture2D" uid="uid://b281mpfyhboh2" path="res://assets/textures/wallr.png" id="18_vqdw4"]
 [ext_resource type="Texture2D" uid="uid://cv5oc2ew5u1s7" path="res://assets/textures/celling.png" id="20_k3etk"]
+[ext_resource type="PackedScene" uid="uid://baequhdq4sr0e" path="res://scenes/ui/pause_menu.tscn" id="21_e0cej"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dbfw2"]
 size = Vector3(3.16016, 5.75653, 10.6978)
@@ -90,11 +91,6 @@ uv1_scale = Vector3(2.5, 1, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_lrvlg"]
 
 [node name="Room" type="Node3D"]
-
-[node name="Player" parent="." instance=ExtResource("1_ly5x2")]
-unique_name_in_owner = true
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0120833, 0)
-slide_on_ceiling = false
 
 [node name="Objects" type="Node" parent="."]
 
@@ -344,3 +340,14 @@ transform = Transform3D(1.91069e-14, 1.22392e-06, 28, 10, -1.22392e-06, 0, 4.371
 material_override = SubResource("StandardMaterial3D_kxykx")
 mesh = SubResource("PlaneMesh_jvu3g")
 skeleton = NodePath("")
+
+[node name="entities" type="Node" parent="."]
+
+[node name="Player" parent="entities" instance=ExtResource("1_ly5x2")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0120833, 0)
+slide_on_ceiling = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("21_e0cej")]
+visible = false

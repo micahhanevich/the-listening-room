@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://x8oxvb6y4a34"]
+[gd_scene load_steps=45 format=3 uid="uid://x8oxvb6y4a34"]
 
 [ext_resource type="PackedScene" uid="uid://b5d3efpsvntt5" path="res://assets/models/clubbabypaint.glb" id="1_uv0of"]
 [ext_resource type="PackedScene" uid="uid://qcij4io2ndmk" path="res://assets/models/clubball.glb" id="2_ya7vl"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://dvqpg2vbjndse" path="res://assets/models/plant1.glb" id="18_mhr1b"]
 [ext_resource type="PackedScene" uid="uid://cvnq02d0xp8pj" path="res://assets/models/couch.glb" id="19_am6yo"]
 [ext_resource type="PackedScene" uid="uid://dkal1jmntn7b2" path="res://scenes/objects/player.tscn" id="20_ux3i5"]
+[ext_resource type="PackedScene" uid="uid://baequhdq4sr0e" path="res://scenes/ui/pause_menu.tscn" id="21_74hfy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_27gcf"]
 size = Vector3(5.72409, 5.90625, 20.7075)
@@ -378,5 +379,13 @@ shape = SubResource("BoxShape3D_nh2fh")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7jofj")
 
-[node name="Player" parent="." instance=ExtResource("20_ux3i5")]
+[node name="entities" type="Node" parent="."]
+
+[node name="Player" parent="entities" instance=ExtResource("20_ux3i5")]
+process_mode = 1
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 16.6465, 0.0673696, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("21_74hfy")]
+visible = false

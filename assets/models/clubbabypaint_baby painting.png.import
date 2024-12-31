@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cug4bmxlsa46h"
+uid="uid://kiemcgeph0vq"
 path.s3tc="res://.godot/imported/clubbabypaint_baby painting.png-6b9acf2997b420ff6f5ba2086e222954.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "0ca1d7369d3fee7aa7cb50c143c12298"
 }
 
 [deps]

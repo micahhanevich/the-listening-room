@@ -15,9 +15,12 @@ func _process(delta):
 		CanUnpause = true
 
 func close_menu():
-	queue_free()
+	set_visible(false)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	get_tree().paused = false
 
 func close_game():
 	get_tree().quit()
+
+func open_map_menu():
+	add_sibling(preload("res://scenes/ui/map_menu.tscn").instantiate())

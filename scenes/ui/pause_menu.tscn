@@ -107,4 +107,5 @@ libraries = {
 autoplay = "pause_cycle"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/TextureButton" to="." method="close_menu"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/TextureButton2" to="." method="open_map_menu"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/TextureButton3" to="." method="close_game"]

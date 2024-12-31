@@ -60,7 +60,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = true
-		get_tree().root.add_child(preload("res://scenes/ui/pause_menu.tscn").instantiate())
+		$"../../CanvasLayer/PauseMenu".set_visible(true)
 		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
 		# get_tree().quit.call_deferred()
 
