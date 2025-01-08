@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://x8oxvb6y4a34"]
+[gd_scene load_steps=55 format=3 uid="uid://x8oxvb6y4a34"]
 
 [ext_resource type="PackedScene" uid="uid://b5d3efpsvntt5" path="res://assets/models/clubbabypaint.glb" id="1_uv0of"]
 [ext_resource type="PackedScene" uid="uid://qcij4io2ndmk" path="res://assets/models/clubball.glb" id="2_ya7vl"]
@@ -19,17 +19,14 @@
 [ext_resource type="PackedScene" uid="uid://c4okpb5il3i" path="res://assets/models/lamppppp.glb" id="17_8t726"]
 [ext_resource type="Texture2D" uid="uid://b1ss72q7goks4" path="res://assets/models/sewerdoor_concr.png" id="17_k6r2y"]
 [ext_resource type="PackedScene" uid="uid://dvqpg2vbjndse" path="res://assets/models/plant1.glb" id="18_mhr1b"]
-[ext_resource type="Texture2D" uid="uid://ebva2uv5v58" path="res://assets/models/railing_black metal.png" id="18_wmu6w"]
 [ext_resource type="PackedScene" uid="uid://cvnq02d0xp8pj" path="res://assets/models/couch.glb" id="19_am6yo"]
 [ext_resource type="PackedScene" uid="uid://dkal1jmntn7b2" path="res://scenes/objects/player.tscn" id="20_ux3i5"]
 [ext_resource type="PackedScene" uid="uid://baequhdq4sr0e" path="res://scenes/ui/pause_menu.tscn" id="21_74hfy"]
 [ext_resource type="PackedScene" uid="uid://d30ke3duaxcxj" path="res://assets/models/pipes.glb" id="22_ty3hx"]
-[ext_resource type="Texture2D" uid="uid://5hy7i513r4km" path="res://assets/textures/possom.png" id="23_5a2e8"]
 [ext_resource type="PackedScene" uid="uid://c2gup0t0v53d4" path="res://assets/models/sewerdoor.glb" id="23_uxuko"]
 [ext_resource type="PackedScene" uid="uid://bfh2yehl6fbn7" path="res://assets/models/peepole.glb" id="24_4swn2"]
 [ext_resource type="Script" path="res://scripts/peepolemove.gd" id="25_itfia"]
 [ext_resource type="PackedScene" uid="uid://cm4wdkydg7v8n" path="res://assets/models/railing.glb" id="25_xgfru"]
-[ext_resource type="PackedScene" uid="uid://8i6pvdn4gvbf" path="res://assets/models/plant2.glb" id="29_6qbpu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_27gcf"]
 size = Vector3(5.72409, 5.90625, 20.7075)
@@ -99,9 +96,6 @@ albedo_texture = ExtResource("17_k6r2y")
 [sub_resource type="BoxShape3D" id="BoxShape3D_el21k"]
 size = Vector3(1, 79.835, 169.838)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgck7"]
-albedo_texture = ExtResource("18_wmu6w")
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_i1k0d"]
 height = 12.0573
 radius = 1.36083
@@ -111,11 +105,6 @@ size = Vector3(1.61169, 1.64166, 1.56927)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nh2fh"]
 size = Vector3(2.48315, 3.62634, 17.3613)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6tfsu"]
-albedo_texture = ExtResource("23_5a2e8")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_dosei"]
 
 [sub_resource type="Environment" id="Environment_7jofj"]
 ambient_light_color = Color(0.332881, 0.332881, 0.332881, 1)
@@ -313,7 +302,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.260791, 0)
 shape = SubResource("CylinderShape3D_fgegb")
 
 [node name="clubmanpaint" parent="objects" instance=ExtResource("13_27bwf")]
-transform = Transform3D(-1.99999, 0, 0.00617867, 0, 2, 0, -0.00617867, 0, -1.99999, 18.4231, 16.1159, 30.748)
+transform = Transform3D(-1.49999, 0, 0.004634, 0, 1.5, 0, -0.004634, 0, -1.49999, 21.9231, 16.1159, 30.748)
 
 [node name="Club_Table" type="StaticBody3D" parent="objects"]
 transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 48.9871, 3.17661, -0.641578)
@@ -368,7 +357,7 @@ skeleton = NodePath("../MeshInstance3D")
 shape = SubResource("ConcavePolygonShape3D_uy7bh")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="objects/wall"]
-transform = Transform3D(-1.74846e-06, 50, 0, -40, -2.18557e-06, 0, 0, 0, 90, -32.5705, 39.0381, -41.5421)
+transform = Transform3D(-1.74846e-06, 50, 0, -40, -2.18557e-06, 0, 0, 0, 90, -33.1517, 39.0381, -41.5421)
 material_override = SubResource("StandardMaterial3D_bkn34")
 mesh = SubResource("PlaneMesh_50x8t")
 skeleton = NodePath("walls")
@@ -381,7 +370,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.6206, 38.7808, -46.0114)
 shape = SubResource("BoxShape3D_el21k")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="objects/wall"]
-transform = Transform3D(1.74846e-06, -50, -7.86805e-06, -40, -2.18557e-06, 0, -1.52855e-13, 4.37114e-06, -90, 58.305, 39.0381, -41.5421)
+transform = Transform3D(1.74846e-06, -50, -7.86805e-06, -40, -2.18557e-06, 0, -1.52855e-13, 4.37114e-06, -90, 58.5679, 39.0381, -41.5421)
 material_override = SubResource("StandardMaterial3D_bkn34")
 mesh = SubResource("PlaneMesh_50x8t")
 skeleton = NodePath("walls")
@@ -407,8 +396,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.6206, 38.7808, -46.0114)
 shape = SubResource("BoxShape3D_el21k")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="objects/wall"]
-transform = Transform3D(-50, 7.54979e-06, 0, -7.54979e-06, -50, 0, 0, 0, 90, 11.6735, 61.0997, -41.5421)
-material_override = SubResource("StandardMaterial3D_sgck7")
+transform = Transform3D(-50, 7.54979e-06, 0, -7.54979e-06, -50, 0, 0, 0, 90, 11.6735, 64.3044, -41.5421)
+material_override = SubResource("StandardMaterial3D_bkn34")
 mesh = SubResource("PlaneMesh_50x8t")
 skeleton = NodePath("walls")
 
@@ -459,11 +448,6 @@ polygon = PackedVector2Array(-9.36, 0, 9.36, 0, 9.36, 5.5, 8.5, 5.5, 8.5, 3.35, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.89504, 2.12514, 0.112482)
 shape = SubResource("BoxShape3D_nh2fh")
 
-[node name="possum" type="MeshInstance3D" parent="objects"]
-transform = Transform3D(-3.93403e-07, -8.182, 6.07982e-07, 0, -3.57647e-07, -13.909, 9, -3.57647e-07, 2.65757e-14, 57.7018, 28.1323, -10.9658)
-material_override = SubResource("StandardMaterial3D_6tfsu")
-mesh = SubResource("PlaneMesh_dosei")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7jofj")
 
@@ -483,6 +467,7 @@ transform = Transform3D(0.00132474, 0, 2.3, 0, 2.3, 0, -2.3, 0, 0.00132474, 23.8
 
 [node name="sewerdoor" parent="." instance=ExtResource("23_uxuko")]
 transform = Transform3D(-1.96701e-07, 0, -4.6, 0, 3.8, 0, 4.5, 0, -2.01072e-07, 8.13003, 0.632424, -55.8294)
+visible = false
 
 [node name="peepole" parent="." instance=ExtResource("24_4swn2")]
 transform = Transform3D(-1.31134e-07, 0, -6, 0, 3.025, 0, 3, 0, -2.62268e-07, 17.9695, 41.1958, -83.077)
@@ -493,21 +478,18 @@ transform = Transform3D(-0.00401968, 0, -5, 0, 4.7, 0, 4.7, 0, -0.00427626, 6.67
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.99915, 0.041213, 0, -0.041213, -0.99915, 16.6374, 40.5176, -122.02)
-light_color = Color(0, 0.718199, 0.769635, 1)
-light_energy = 19.0
+light_color = Color(0.674583, 0.740514, 0.96446, 1)
+light_energy = 16.0
 light_indirect_energy = 0.0
-light_specular = 1.856
 shadow_enabled = true
 shadow_bias = 0.0
 shadow_normal_bias = 6.254
 shadow_blur = 0.0
-spot_range = 511.061
-spot_angle = 58.098
+spot_range = 472.541
+spot_angle = 51.1124
 
 [node name="FogVolume" type="FogVolume" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1525, 31.1131, -94.4054)
+visible = false
 size = Vector3(124.118, 68.0115, 38.1423)
 material = SubResource("FogMaterial_10kbl")
-
-[node name="plant2" parent="." instance=ExtResource("29_6qbpu")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -17.2889, 33.7292, 6.48342)
