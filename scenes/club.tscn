@@ -388,4 +388,3 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 16.6465, 0.0673696, 0)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("21_74hfy")]
-visible = false
