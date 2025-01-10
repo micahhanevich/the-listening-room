@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://lk4yj4kb5cnh"]
+
+[ext_resource type="Script" path="res://scenes/ui/tv.gd" id="1_owsn1"]
+[ext_resource type="Texture2D" uid="uid://lnryby3btyfv" path="res://assets/ui/TAPE1.png" id="1_v3v7v"]
+[ext_resource type="Texture2D" uid="uid://ge1r4ag2q7vm" path="res://assets/ui/TAPE2.png" id="2_6oce1"]
+[ext_resource type="Texture2D" uid="uid://d10q513lfefuk" path="res://assets/ui/TAPE3.png" id="3_hvurx"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_owsn1")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+offset_left = 1.0
+offset_right = 451.0
+offset_bottom = 58.0
+scale = Vector2(2.56, 2.56)
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_v3v7v")
+
+[node name="TextureButton2" type="TextureButton" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_6oce1")
+
+[node name="TextureButton3" type="TextureButton" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_hvurx")
+
+[node name="TextureButton4" type="TextureButton" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_v3v7v")
+
+[node name="TextureButton5" type="TextureButton" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_6oce1")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c7ddbk2l8uq41"]
+[gd_scene load_steps=54 format=3 uid="uid://c7ddbk2l8uq41"]
 
 [ext_resource type="PackedScene" uid="uid://dkal1jmntn7b2" path="res://scenes/objects/player.tscn" id="1_ly5x2"]
 [ext_resource type="Texture2D" uid="uid://ci6prh6eyd67t" path="res://assets/textures/flooor.png" id="1_pihpk"]
@@ -21,6 +21,10 @@
 [ext_resource type="Texture2D" uid="uid://b281mpfyhboh2" path="res://assets/textures/wallr.png" id="18_vqdw4"]
 [ext_resource type="Texture2D" uid="uid://cv5oc2ew5u1s7" path="res://assets/textures/celling.png" id="20_k3etk"]
 [ext_resource type="PackedScene" uid="uid://baequhdq4sr0e" path="res://scenes/ui/pause_menu.tscn" id="21_e0cej"]
+[ext_resource type="Texture2D" uid="uid://il7fa1t03x76" path="res://assets/models/grass.png" id="22_b0ban"]
+[ext_resource type="PackedScene" uid="uid://d1pe3h4rylmkw" path="res://assets/textures/wall with hole.glb" id="22_x7tqe"]
+[ext_resource type="PackedScene" uid="uid://caqjbe6aa412u" path="res://assets/textures/window.glb" id="23_3nyp8"]
+[ext_resource type="Texture2D" uid="uid://w2psmgn7piuv" path="res://assets/textures/sky.png" id="25_pngqa"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dbfw2"]
 size = Vector3(3.16016, 5.75653, 10.6978)
@@ -89,6 +93,31 @@ albedo_texture = ExtResource("20_k3etk")
 uv1_scale = Vector3(2.5, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_lrvlg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e05ms"]
+albedo_texture = ExtResource("22_b0ban")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x5qar"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_uh1mx"]
+panorama = ExtResource("25_pngqa")
+
+[sub_resource type="Sky" id="Sky_cda7g"]
+resource_local_to_scene = true
+sky_material = SubResource("PanoramaSkyMaterial_uh1mx")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_ntfak"]
+background_mode = 2
+background_energy_multiplier = 0.47
+sky = SubResource("Sky_cda7g")
+reflected_light_source = 1
+fog_mode = 1
+fog_light_energy = 0.3
+fog_density = 1.0
+fog_depth_curve = 3.24901
+
+[sub_resource type="GDScript" id="GDScript_cho6m"]
 
 [node name="Room" type="Node3D"]
 
@@ -229,7 +258,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.57776, 0)
 shape = SubResource("BoxShape3D_y2tac")
 
 [node name="treeee" parent="Objects" instance=ExtResource("15_tveyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0426, 1.59391, -36.5736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0426, 1.59391, -43.694)
 
 [node name="TV" type="StaticBody3D" parent="Objects"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20.9747, 5.26924, -3.06768)
@@ -266,6 +295,7 @@ depth = 11.385
 polygon = PackedVector2Array(10, 1.016, -10, 1, -10, -0.9, 11.5, -0.92, 11.5, 6.3, 10, 6.3)
 
 [node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="Objects/Bed"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0317364, -9.53674e-07, 0.0224323)
 depth = 9.75
 polygon = PackedVector2Array(10, 1, -9.4, 1, -9.4, 2.57, 10, 2.57)
 
@@ -335,11 +365,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.9993, 19.8614, 0.00245476
 depth = 32.0
 polygon = PackedVector2Array(0, 0, 54, 0, 54, -1, 0, -1)
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="World/Walls"]
-transform = Transform3D(1.91069e-14, 1.22392e-06, 28, 10, -1.22392e-06, 0, 4.37114e-07, 28, -1.22392e-06, 0.152877, 9.95957, -15.6428)
-material_override = SubResource("StandardMaterial3D_kxykx")
-mesh = SubResource("PlaneMesh_jvu3g")
-skeleton = NodePath("")
+[node name="wall with hole" parent="World/Walls" instance=ExtResource("22_x7tqe")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.1, 0, 1, 0, -4.37114e-08, 0.123205, 8.92361, -16.8846)
+
+[node name="window" parent="World/Walls" instance=ExtResource("23_3nyp8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.1, 0, 1, 0, -4.37114e-08, 0.333221, 9.06048, -16.9822)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World"]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, -178.948)
+material_override = SubResource("StandardMaterial3D_e05ms")
+mesh = SubResource("PlaneMesh_x5qar")
 
 [node name="entities" type="Node" parent="."]
 
@@ -351,3 +386,7 @@ slide_on_ceiling = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("21_e0cej")]
 visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ntfak")
+script = SubResource("GDScript_cho6m")
