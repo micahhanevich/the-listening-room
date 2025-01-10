@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://x8oxvb6y4a34"]
+[gd_scene load_steps=62 format=3 uid="uid://x8oxvb6y4a34"]
 
 [ext_resource type="PackedScene" uid="uid://b5d3efpsvntt5" path="res://assets/models/clubbabypaint.glb" id="1_uv0of"]
 [ext_resource type="PackedScene" uid="uid://qcij4io2ndmk" path="res://assets/models/clubball.glb" id="2_ya7vl"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://scripts/peepolemove.gd" id="25_itfia"]
 [ext_resource type="PackedScene" uid="uid://cm4wdkydg7v8n" path="res://assets/models/railing.glb" id="25_xgfru"]
 [ext_resource type="PackedScene" uid="uid://8i6pvdn4gvbf" path="res://assets/models/plant2.glb" id="29_6qbpu"]
+[ext_resource type="PackedScene" uid="uid://o0po8nilftlr" path="res://scenes/ui/music_menu.tscn" id="31_wq313"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_27gcf"]
 size = Vector3(5.72409, 5.90625, 20.7075)
@@ -473,11 +474,6 @@ environment = SubResource("Environment_7jofj")
 process_mode = 1
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 16.6465, 0.0673696, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("21_74hfy")]
-visible = false
-
 [node name="pipes" parent="." instance=ExtResource("22_ty3hx")]
 transform = Transform3D(0.00132474, 0, 2.3, 0, 2.3, 0, -2.3, 0, 0.00132474, 23.866, 54.817, -6.97513)
 
@@ -511,3 +507,9 @@ material = SubResource("FogMaterial_10kbl")
 
 [node name="plant2" parent="." instance=ExtResource("29_6qbpu")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -17.2889, 33.7292, 6.48342)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("21_74hfy")]
+
+[node name="MusicMenu" parent="CanvasLayer" instance=ExtResource("31_wq313")]

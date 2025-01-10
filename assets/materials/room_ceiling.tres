@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://qskqvj1h33wf"]
+
+[ext_resource type="Texture2D" uid="uid://cv5oc2ew5u1s7" path="res://assets/textures/celling.png" id="1_snvew"]
+
+[resource]
+albedo_texture = ExtResource("1_snvew")
+uv1_scale = Vector3(2.5, 1, 1)
+texture_filter = 0

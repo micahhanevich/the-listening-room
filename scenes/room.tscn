@@ -1,9 +1,10 @@
-[gd_scene load_steps=54 format=3 uid="uid://c7ddbk2l8uq41"]
+[gd_scene load_steps=52 format=3 uid="uid://c7ddbk2l8uq41"]
 
 [ext_resource type="PackedScene" uid="uid://dkal1jmntn7b2" path="res://scenes/objects/player.tscn" id="1_ly5x2"]
 [ext_resource type="Texture2D" uid="uid://ci6prh6eyd67t" path="res://assets/textures/flooor.png" id="1_pihpk"]
 [ext_resource type="PackedScene" uid="uid://b4qblhqmyurnc" path="res://assets/models/bed.glb" id="3_vyoch"]
 [ext_resource type="PackedScene" uid="uid://b6lu78ktwoo0p" path="res://assets/models/bedroomshelves.glb" id="4_7i1qw"]
+[ext_resource type="Script" path="res://scripts/world/clickable.gd" id="4_idupw"]
 [ext_resource type="PackedScene" uid="uid://cn2cph2i6mxs3" path="res://assets/models/cds.glb" id="5_8kttw"]
 [ext_resource type="PackedScene" uid="uid://bywdcyh35q5af" path="res://assets/models/cd_player.glb" id="6_crndo"]
 [ext_resource type="PackedScene" uid="uid://cvnq02d0xp8pj" path="res://assets/models/couch.glb" id="7_0mxq3"]
@@ -18,13 +19,15 @@
 [ext_resource type="VideoStream" path="res://assets/textures/YouCut_20220531_081006739 (1).ogv" id="16_6jxi8"]
 [ext_resource type="PackedScene" uid="uid://dxpw1pvuqyvb0" path="res://assets/models/turntable.glb" id="16_dlsnr"]
 [ext_resource type="PackedScene" uid="uid://d33h23ffd1n05" path="res://assets/models/tv.glb" id="17_ddy7x"]
-[ext_resource type="Texture2D" uid="uid://b281mpfyhboh2" path="res://assets/textures/wallr.png" id="18_vqdw4"]
-[ext_resource type="Texture2D" uid="uid://cv5oc2ew5u1s7" path="res://assets/textures/celling.png" id="20_k3etk"]
+[ext_resource type="Material" uid="uid://bbcwhyv1kl6f0" path="res://assets/materials/room_walls.tres" id="19_841h6"]
+[ext_resource type="Material" uid="uid://qskqvj1h33wf" path="res://assets/materials/room_ceiling.tres" id="20_rc1ce"]
 [ext_resource type="PackedScene" uid="uid://baequhdq4sr0e" path="res://scenes/ui/pause_menu.tscn" id="21_e0cej"]
 [ext_resource type="Texture2D" uid="uid://il7fa1t03x76" path="res://assets/models/grass.png" id="22_b0ban"]
 [ext_resource type="PackedScene" uid="uid://d1pe3h4rylmkw" path="res://assets/textures/wall with hole.glb" id="22_x7tqe"]
 [ext_resource type="PackedScene" uid="uid://caqjbe6aa412u" path="res://assets/textures/window.glb" id="23_3nyp8"]
 [ext_resource type="Texture2D" uid="uid://w2psmgn7piuv" path="res://assets/textures/sky.png" id="25_pngqa"]
+[ext_resource type="Script" path="res://scripts/world/world_environment.gd" id="27_y085c"]
+[ext_resource type="PackedScene" uid="uid://o0po8nilftlr" path="res://scenes/ui/music_menu.tscn" id="28_m13s2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dbfw2"]
 size = Vector3(3.16016, 5.75653, 10.6978)
@@ -74,33 +77,22 @@ texture_filter = 0
 [sub_resource type="PlaneMesh" id="PlaneMesh_xkv2c"]
 material = SubResource("StandardMaterial3D_irlps")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqcts"]
-albedo_texture = ExtResource("18_vqdw4")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_32ebr"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jvu3g"]
 material = SubResource("ShaderMaterial_32ebr")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kxykx"]
-albedo_texture = ExtResource("18_vqdw4")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ktay"]
-albedo_texture = ExtResource("18_vqdw4")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1uqh"]
-albedo_texture = ExtResource("20_k3etk")
-uv1_scale = Vector3(2.5, 1, 1)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_lrvlg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e05ms"]
 albedo_texture = ExtResource("22_b0ban")
+texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_x5qar"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_uh1mx"]
 panorama = ExtResource("25_pngqa")
+filter = false
 
 [sub_resource type="Sky" id="Sky_cda7g"]
 resource_local_to_scene = true
@@ -111,13 +103,13 @@ radiance_size = 2
 background_mode = 2
 background_energy_multiplier = 0.47
 sky = SubResource("Sky_cda7g")
+ambient_light_source = 2
+ambient_light_color = Color(0.0521394, 0.0520917, 0.117262, 1)
 reflected_light_source = 1
 fog_mode = 1
 fog_light_energy = 0.3
 fog_density = 1.0
 fog_depth_curve = 3.24901
-
-[sub_resource type="GDScript" id="GDScript_cho6m"]
 
 [node name="Room" type="Node3D"]
 
@@ -143,6 +135,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0383978, 6.58376, -3.2019)
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/BedroomShelves/CD_Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000732422, 0.108459, 0.000854492)
+shape = SubResource("BoxShape3D_flrlh")
+
+[node name="Area3D" type="Area3D" parent="Objects/BedroomShelves/CD_Player"]
+script = ExtResource("4_idupw")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Objects/BedroomShelves/CD_Player/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000732422, 0.108459, 0.000854492)
 shape = SubResource("BoxShape3D_flrlh")
 
@@ -319,25 +318,25 @@ polygon = PackedVector2Array(0, 0, 54, 0, 54, -1, 0, -1)
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="World/Walls"]
 transform = Transform3D(4.37114e-07, -1, -1.39877e-06, -10, -4.37114e-08, 0, -3.82137e-14, 8.74228e-08, -16, 26.5, 10, 0)
-material_override = SubResource("StandardMaterial3D_nqcts")
+material_override = ExtResource("19_841h6")
 mesh = SubResource("PlaneMesh_jvu3g")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="World/Walls"]
 transform = Transform3D(1.91069e-14, 1.22392e-06, -28, 10, -1.22392e-06, 0, -4.37114e-07, -28, -1.22392e-06, 0.152877, 9.95957, 15.719)
-material_override = SubResource("StandardMaterial3D_kxykx")
+material_override = ExtResource("19_841h6")
 mesh = SubResource("PlaneMesh_jvu3g")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="World/Walls"]
 transform = Transform3D(-4.37114e-07, 28, 0, -10, -1.22392e-06, 0, 0, 0, 16, -26.7917, 9.79561, -0.0163355)
-material_override = SubResource("StandardMaterial3D_7ktay")
+material_override = ExtResource("19_841h6")
 mesh = SubResource("PlaneMesh_jvu3g")
 skeleton = NodePath("")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="World/Walls"]
 transform = Transform3D(28, 0, 0, 0, -1, 1.39877e-06, 0, -8.74228e-08, -16, 0, 19.6463, -2.05478e-08)
-material_override = SubResource("StandardMaterial3D_f1uqh")
+material_override = ExtResource("20_rc1ce")
 mesh = SubResource("PlaneMesh_lrvlg")
 skeleton = NodePath("../..")
 
@@ -382,11 +381,15 @@ mesh = SubResource("PlaneMesh_x5qar")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0120833, 0)
 slide_on_ceiling = false
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ntfak")
+script = ExtResource("27_y085c")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("21_e0cej")]
-visible = false
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_ntfak")
-script = SubResource("GDScript_cho6m")
+[node name="MusicMenu" parent="CanvasLayer" instance=ExtResource("28_m13s2")]
+process_mode = 2
+
+[connection signal="clicked_on" from="Objects/BedroomShelves/CD_Player/Area3D" to="Objects/BedroomShelves/CD_Player/Area3D" method="_open_music_menu"]

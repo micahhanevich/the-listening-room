@@ -17,9 +17,10 @@ var falling: bool = false
 @export_range(1, 10, 0.5)
 var sensitivity: float = 5
 
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+var ClickTarget: Node3D
 
 
 func _ready():
@@ -59,12 +60,17 @@ func _physics_process(delta):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	if Input.is_action_just_pressed("pause"):
-		get_tree().paused = true
-		$"../../CanvasLayer/PauseMenu".set_visible(true)
-		Input.mouse_mode = Input.MOUSE_MODE_CONFINED
-		# get_tree().quit.call_deferred()
+		if Game.PauseMenu.visible != true:
+			get_tree().paused = true
+			Game.PauseMenu.visible = true
+			Input.mouse_mode = Input.MOUSE_MODE_CONFINED
+	
+	if $PlayerCamPivot/PlayerCamera/RayCast3D.is_colliding():
+		ClickTarget = $PlayerCamPivot/PlayerCamera/RayCast3D.get_collider()
+	else:
+		ClickTarget = null
 
-# Called when the mouse is moved
+# Called when an input is captured
 func _input(event):
 	if event is InputEventMouseMotion:
 		var mouse_delta: Vector2 = event.relative
@@ -75,3 +81,6 @@ func _input(event):
 		# Rotate camera vertically
 		%PlayerCamera.rotate_x(-mouse_delta.y * (sensitivity / 1000))
 		%PlayerCamera.rotation.x = clamp(%PlayerCamera.rotation.x, -MAX_LOOK_ANGLE, MAX_LOOK_ANGLE)
+	
+	elif Input.is_action_just_pressed("select") && ClickTarget != null:
+		ClickTarget.clicked_on.emit()
