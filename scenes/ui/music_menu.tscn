@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/ui/music_menu.gd" id="1_y72yo"]
 
 [node name="MusicMenu" type="Control"]
+process_mode = 2
 visible = false
 layout_mode = 3
 anchors_preset = 15

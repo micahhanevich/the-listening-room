@@ -28,3 +28,7 @@ target_position = Vector3(0, 0, -9)
 collide_with_areas = true
 collide_with_bodies = false
 debug_shape_custom_color = Color(1, 0.631373, 0, 1)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.702929, 0)
+bus = &"Effects"

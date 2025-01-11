@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://x8oxvb6y4a34"]
+[gd_scene load_steps=65 format=3 uid="uid://x8oxvb6y4a34"]
 
 [ext_resource type="PackedScene" uid="uid://b5d3efpsvntt5" path="res://assets/models/clubbabypaint.glb" id="1_uv0of"]
 [ext_resource type="PackedScene" uid="uid://qcij4io2ndmk" path="res://assets/models/clubball.glb" id="2_ya7vl"]
@@ -10,13 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://dugr2r4a7h8li" path="res://assets/models/clubdeck.glb" id="8_6lb8y"]
 [ext_resource type="PackedScene" uid="uid://cakybrpm765" path="res://assets/models/clublight.glb" id="9_2y2pp"]
 [ext_resource type="PackedScene" uid="uid://bwh5nbmae6v7j" path="res://assets/models/clublspeaker.glb" id="10_lnn2t"]
+[ext_resource type="Script" path="res://scripts/world/clickable.gd" id="11_bjdx7"]
 [ext_resource type="PackedScene" uid="uid://b8g0ahirjav0n" path="res://assets/models/clublstand.glb" id="11_dj6mh"]
 [ext_resource type="PackedScene" uid="uid://d3w73ctchh4gt" path="res://assets/models/clublstool2.glb" id="12_xabhp"]
 [ext_resource type="PackedScene" uid="uid://dhscxvel4fwmt" path="res://assets/models/clubmanpaint.glb" id="13_27bwf"]
 [ext_resource type="PackedScene" uid="uid://c1ipnr73qhoj0" path="res://assets/models/clubstool.glb" id="14_0tn25"]
 [ext_resource type="PackedScene" uid="uid://csq5sehnmqsdd" path="res://assets/models/clubtable.glb" id="15_hrp1a"]
 [ext_resource type="Texture2D" uid="uid://c8e6sf1ckveor" path="res://assets/models/concr.png" id="16_cpgtu"]
-[ext_resource type="PackedScene" uid="uid://c4okpb5il3i" path="res://assets/models/lamppppp.glb" id="17_8t726"]
 [ext_resource type="Texture2D" uid="uid://b1ss72q7goks4" path="res://assets/models/sewerdoor_concr.png" id="17_k6r2y"]
 [ext_resource type="PackedScene" uid="uid://dvqpg2vbjndse" path="res://assets/models/plant1.glb" id="18_mhr1b"]
 [ext_resource type="Texture2D" uid="uid://ebva2uv5v58" path="res://assets/models/railing_black metal.png" id="18_wmu6w"]
@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://cm4wdkydg7v8n" path="res://assets/models/railing.glb" id="25_xgfru"]
 [ext_resource type="PackedScene" uid="uid://8i6pvdn4gvbf" path="res://assets/models/plant2.glb" id="29_6qbpu"]
 [ext_resource type="PackedScene" uid="uid://o0po8nilftlr" path="res://scenes/ui/music_menu.tscn" id="31_wq313"]
+[ext_resource type="PackedScene" uid="uid://dqfjarnrbofwf" path="res://assets/models/lamppppp.tscn" id="32_omlws"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_27gcf"]
 size = Vector3(5.72409, 5.90625, 20.7075)
@@ -58,6 +59,12 @@ size = Vector3(2.51046, 4.13553, 2.48517)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tg10l"]
 size = Vector3(2.25158, 4.13553, 5.99552)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6frjj"]
+size = Vector3(16.0286, 12.9622, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bxicn"]
+size = Vector3(4.53174, 0.733276, 2.79614)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_haj1f"]
 height = 2.93992
@@ -103,10 +110,6 @@ size = Vector3(1, 79.835, 169.838)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgck7"]
 albedo_texture = ExtResource("18_wmu6w")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_i1k0d"]
-height = 12.0573
-radius = 1.36083
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_nia2j"]
 size = Vector3(1.61169, 1.64166, 1.56927)
 
@@ -127,11 +130,17 @@ fog_light_color = Color(0.647516, 0.728115, 0.840006, 1)
 fog_light_energy = 0.01
 fog_density = 0.0267
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0
+volumetric_fog_density = 0.0088
+volumetric_fog_length = 126.87
 
 [sub_resource type="FogMaterial" id="FogMaterial_10kbl"]
 albedo = Color(0.0988167, 0.145439, 0.321985, 1)
 emission = Color(0.0768358, 0.0768358, 0.0768358, 1)
+edge_fade = 0.17411
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_covyd"]
+height = 10.5586
+radius = 1.36083
 
 [node name="Club" type="Node3D"]
 
@@ -238,8 +247,23 @@ shape = SubResource("BoxShape3D_tg10l")
 [node name="clubbottle" parent="objects" instance=ExtResource("7_v1751")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.53599, 6.31453, 1.66564)
 
+[node name="StaticBody3D2" type="StaticBody3D" parent="objects"]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 13.8282, 5.3964, -75.4652)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.750899, 2.39738, 0)
+shape = SubResource("BoxShape3D_6frjj")
+
 [node name="clubdeck" parent="objects" instance=ExtResource("8_6lb8y")]
 transform = Transform3D(-1.05399, 0, -0.921466, 0, 1.4, 0, 0.921466, 0, -1.05399, 34.1588, 5.3964, 21.8446)
+
+[node name="Area3D" type="Area3D" parent="objects/clubdeck"]
+transform = Transform3D(0.714287, 0, 0, 0, 0.714286, 0, 0, 0, 0.714287, 0, 0, 0)
+script = ExtResource("11_bjdx7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/clubdeck/Area3D"]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.0256348, -0.133362, -0.00255966)
+shape = SubResource("BoxShape3D_bxicn")
 
 [node name="clublight" parent="objects" instance=ExtResource("9_2y2pp")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 23.7692, 52.1563, -2.25793)
@@ -420,22 +444,6 @@ transform = Transform3D(-1.09278e-09, -0.025, 0, 0.02, -8.74228e-10, 0, 0, 0, 0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.6206, 38.7808, -46.0114)
 shape = SubResource("BoxShape3D_el21k")
 
-[node name="Floor_Lamp" type="StaticBody3D" parent="objects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.24, 10.111, -35.635)
-
-[node name="lamppppp" parent="objects/Floor_Lamp" instance=ExtResource("17_8t726")]
-transform = Transform3D(1, 0, 0, 0, 1.19585, 0, 0, 0, 1, 0, 1.97847, 0)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="objects/Floor_Lamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.13164, 0)
-light_color = Color(0.865837, 0.848993, 0, 1)
-light_energy = 6.01
-omni_range = 46.373
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="objects/Floor_Lamp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.09293, 0)
-shape = SubResource("CylinderShape3D_i1k0d")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="objects"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -27.6769, 7.89096, -44.2834)
 
@@ -513,3 +521,24 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -17.2889, 33.7292, 6.48342)
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("21_74hfy")]
 
 [node name="MusicMenu" parent="CanvasLayer" instance=ExtResource("31_wq313")]
+
+[node name="Floor_Lamp" type="StaticBody3D" parent="."]
+transform = Transform3D(1.225, 0, 0, 0, 1.315, 0, 0, 0, 1.225, -28.6699, 13.292, -35.804)
+
+[node name="lamppppp2" parent="Floor_Lamp" instance=ExtResource("32_omlws")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Floor_Lamp"]
+transform = Transform3D(1.99907, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28347, 0)
+light_color = Color(0.865837, 0.848993, 0, 1)
+light_energy = 6.01
+shadow_enabled = true
+omni_range = 46.373
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor_Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.80633, 0)
+shape = SubResource("CylinderShape3D_covyd")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.7401, 9.73376, -41.6452)
+
+[connection signal="clicked_on" from="objects/clubdeck/Area3D" to="objects/clubdeck/Area3D" method="_open_music_menu"]

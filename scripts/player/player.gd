@@ -67,12 +67,13 @@ func _physics_process(delta):
 	
 	if $PlayerCamPivot/PlayerCamera/RayCast3D.is_colliding():
 		ClickTarget = $PlayerCamPivot/PlayerCamera/RayCast3D.get_collider()
+		
 	else:
 		ClickTarget = null
 
 # Called when an input is captured
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion && Input.mouse_mode != Input.MouseMode.MOUSE_MODE_VISIBLE:
 		var mouse_delta: Vector2 = event.relative
 		
 		# Rotate horizontally (around Y axis)

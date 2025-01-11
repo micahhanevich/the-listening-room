@@ -427,6 +427,5 @@ script = ExtResource("27_y085c")
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("21_e0cej")]
 
 [node name="MusicMenu" parent="CanvasLayer" instance=ExtResource("28_m13s2")]
-process_mode = 2
 
 [connection signal="clicked_on" from="Objects/BedroomShelves/CD_Player/Area3D" to="Objects/BedroomShelves/CD_Player/Area3D" method="_open_music_menu"]
