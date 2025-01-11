@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn638be0x3k5l"]
+
+[ext_resource type="PackedScene" uid="uid://cykrxvte5kvcb" path="res://assets/models/lamp.glb" id="1_6my7t"]
+
+[node name="lamp2" instance=ExtResource("1_6my7t")]
+
+[node name="lamp" parent="." index="0"]
+cast_shadow = 0

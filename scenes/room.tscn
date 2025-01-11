@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://c7ddbk2l8uq41"]
+[gd_scene load_steps=53 format=3 uid="uid://c7ddbk2l8uq41"]
 
 [ext_resource type="PackedScene" uid="uid://dkal1jmntn7b2" path="res://scenes/objects/player.tscn" id="1_ly5x2"]
 [ext_resource type="Texture2D" uid="uid://ci6prh6eyd67t" path="res://assets/textures/flooor.png" id="1_pihpk"]
@@ -9,15 +9,16 @@
 [ext_resource type="PackedScene" uid="uid://bywdcyh35q5af" path="res://assets/models/cd_player.glb" id="6_crndo"]
 [ext_resource type="PackedScene" uid="uid://cvnq02d0xp8pj" path="res://assets/models/couch.glb" id="7_0mxq3"]
 [ext_resource type="PackedScene" uid="uid://balb6ellyofm8" path="res://assets/models/endtable.glb" id="8_p6517"]
-[ext_resource type="PackedScene" uid="uid://cykrxvte5kvcb" path="res://assets/models/lamp.glb" id="9_ujris"]
+[ext_resource type="PackedScene" uid="uid://cn638be0x3k5l" path="res://assets/models/lamp_2.tscn" id="9_5q0l8"]
 [ext_resource type="PackedScene" uid="uid://unou2shk1kdp" path="res://assets/models/everything_poster.glb" id="10_31aqg"]
-[ext_resource type="PackedScene" uid="uid://c4okpb5il3i" path="res://assets/models/lamppppp.glb" id="11_daoq0"]
+[ext_resource type="PackedScene" uid="uid://dqfjarnrbofwf" path="res://assets/models/lamppppp.tscn" id="11_7u430"]
 [ext_resource type="PackedScene" uid="uid://dvqpg2vbjndse" path="res://assets/models/plant1.glb" id="12_adyla"]
 [ext_resource type="PackedScene" uid="uid://8i6pvdn4gvbf" path="res://assets/models/plant2.glb" id="13_tb223"]
 [ext_resource type="PackedScene" uid="uid://cc1p0fnoumr3h" path="res://assets/models/speaker.glb" id="14_q5m42"]
 [ext_resource type="PackedScene" uid="uid://cdt63k5necnb1" path="res://assets/models/treeee.glb" id="15_tveyx"]
 [ext_resource type="VideoStream" path="res://assets/textures/YouCut_20220531_081006739 (1).ogv" id="16_6jxi8"]
 [ext_resource type="PackedScene" uid="uid://dxpw1pvuqyvb0" path="res://assets/models/turntable.glb" id="16_dlsnr"]
+[ext_resource type="Script" path="res://scripts/world/tv.gd" id="17_631vq"]
 [ext_resource type="PackedScene" uid="uid://d33h23ffd1n05" path="res://assets/models/tv.glb" id="17_ddy7x"]
 [ext_resource type="Material" uid="uid://bbcwhyv1kl6f0" path="res://assets/materials/room_walls.tres" id="19_841h6"]
 [ext_resource type="Material" uid="uid://qskqvj1h33wf" path="res://assets/materials/room_ceiling.tres" id="20_rc1ce"]
@@ -66,6 +67,7 @@ viewport_path = NodePath("Objects/TV/MeshInstance3D/SubViewport")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_av7ne"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_53cka")
+emission = Color(0, 0.213639, 0.280788, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_rpl2c"]
 
@@ -209,12 +211,13 @@ shape = SubResource("BoxShape3D_xpwn6")
 [node name="Bed_Lamp" type="StaticBody3D" parent="Objects"]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 24.0766, 9.57825, 5.16439)
 
-[node name="lamp2" parent="Objects/Bed_Lamp" instance=ExtResource("9_ujris")]
+[node name="lamp3" parent="Objects/Bed_Lamp" instance=ExtResource("9_5q0l8")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Objects/Bed_Lamp"]
 transform = Transform3D(1.42857, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -0.108467, 1.59686, -0.0755258)
 light_color = Color(0.701017, 0.694772, 0, 1)
 light_energy = 5.687
+shadow_enabled = true
 omni_range = 30.111
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Bed_Lamp"]
@@ -222,16 +225,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.27033, 0)
 shape = SubResource("BoxShape3D_t7b4g")
 
 [node name="everything_poster" parent="Objects" instance=ExtResource("10_31aqg")]
-transform = Transform3D(-2.44276e-05, 0, -1.4, 0, 1.4, 0, 1.4, 0, -2.44276e-05, -4.59721, 12.567, -15.462)
+transform = Transform3D(-2.44276e-05, 0, -1.4, 0, 1.4, 0, 1.4, 0, -2.44276e-05, -4.59721, 12.567, -15.5843)
 
 [node name="Floor_Lamp" type="StaticBody3D" parent="Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5865, 10.1279, -12.628)
 
-[node name="lamppppp" parent="Objects/Floor_Lamp" instance=ExtResource("11_daoq0")]
+[node name="lamppppp2" parent="Objects/Floor_Lamp" instance=ExtResource("11_7u430")]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Objects/Floor_Lamp"]
+transform = Transform3D(1.99907, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28347, 0)
 light_color = Color(0.865837, 0.848993, 0, 1)
 light_energy = 6.01
+shadow_enabled = true
 omni_range = 46.373
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Objects/Floor_Lamp"]
@@ -257,7 +262,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.57776, 0)
 shape = SubResource("BoxShape3D_y2tac")
 
 [node name="treeee" parent="Objects" instance=ExtResource("15_tveyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.0426, 1.59391, -43.694)
+transform = Transform3D(2.175, 0, 0, 0, 2.175, 0, 0, 0, 2.175, 24.6392, 1.59391, -53.9974)
+
+[node name="treeee2" parent="Objects" instance=ExtResource("15_tveyx")]
+transform = Transform3D(2.175, 0, 0, 0, 2.175, 0, 0, 0, 2.175, -6.18012, 1.59391, -49.4922)
+
+[node name="treeee3" parent="Objects" instance=ExtResource("15_tveyx")]
+transform = Transform3D(2.175, 0, 0, 0, 2.175, 0, 0, 0, 2.175, -0.0102501, 1.59391, -81.6431)
+
+[node name="treeee4" parent="Objects" instance=ExtResource("15_tveyx")]
+transform = Transform3D(2.175, 0, 0, 0, 2.175, 0, 0, 0, 2.175, 46.9958, 1.59391, -55.8617)
+
+[node name="treeee5" parent="Objects" instance=ExtResource("15_tveyx")]
+transform = Transform3D(2.175, 0, 0, 0, 2.175, 0, 0, 0, 2.175, -20.8978, 1.59391, -63.8371)
 
 [node name="TV" type="StaticBody3D" parent="Objects"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20.9747, 5.26924, -3.06768)
@@ -271,6 +288,7 @@ shape = SubResource("BoxShape3D_j7ghg")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Objects/TV"]
 transform = Transform3D(1.45, 4.37114e-08, -2.29282e-15, 0, -4.37114e-08, -1.2, -6.33815e-08, 1, -5.24537e-08, 0, 0.299486, 0.435085)
 material_override = SubResource("StandardMaterial3D_av7ne")
+cast_shadow = 0
 mesh = SubResource("PlaneMesh_rpl2c")
 
 [node name="SubViewport" type="SubViewport" parent="Objects/TV/MeshInstance3D"]
@@ -282,6 +300,19 @@ stream = ExtResource("16_6jxi8")
 volume_db = -64.4
 autoplay = true
 loop = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Objects/TV"]
+transform = Transform3D(-0.999748, 0, 0.0224606, 0, 1, 0, -0.0224606, 0, -0.999748, 0, 0, -1.55736)
+light_color = Color(0.619934, 0.751147, 1, 1)
+light_energy = 7.915
+light_bake_mode = 1
+spot_range = 15.476
+script = ExtResource("17_631vq")
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Objects/TV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.88521)
+spot_range = 1.74354
+spot_angle = 74.0501
 
 [node name="Bed" type="StaticBody3D" parent="Objects"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.292, 0.907269, 9.20616)
@@ -374,6 +405,12 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1.1, 0, 1, 0, -4.37114e-08, 0.33
 transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, -178.948)
 material_override = SubResource("StandardMaterial3D_e05ms")
 mesh = SubResource("PlaneMesh_x5qar")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 0.849368, 0.527801, 0, -0.527801, 0.849368, 12.843, 10.5879, -17.4656)
+light_color = Color(0.999999, 0.664445, 0.524314, 1)
+spot_range = 26.235
+spot_angle = 42.1
 
 [node name="entities" type="Node" parent="."]
 
